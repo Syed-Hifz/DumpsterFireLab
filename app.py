@@ -1,18 +1,16 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 import random
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    """Serve the main application page"""
-    return app.send_static_file('index.html')
+    return render_template('index.html')
 
 @app.route('/api/roll', methods=['POST'])
 def roll_dice():
-    """Roll the dice and return the result"""
     number = random.randint(1, 6)
-    is_fire = number % 2 == 1  # Odd numbers (1, 3, 5) are fire
+    is_fire = number % 2 == 1
     
     return jsonify({
         'number': number,
