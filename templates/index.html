@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dumpster Fire Dice App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Is This a Dumpster Fire?</h1>
+        
+        <div class="dumpster-container">
+            <!-- SVG Dumpster Graphic -->
+            <svg class="dumpster" viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg">
+                <!-- Flames (hidden by default) -->
+                <g class="flames" id="flames">
+                    <!-- Left flame -->
+                    <path class="flame flame-1" d="M 40 180 Q 30 150 35 120 Q 25 140 40 160 Q 35 145 45 130 Q 40 150 55 155 Q 45 165 40 180 Z" fill="#FF6B35"/>
+                    <path class="flame flame-1" d="M 40 180 Q 30 150 35 120 Q 25 140 40 160 Q 35 145 45 130 Q 40 150 55 155 Q 45 165 40 180 Z" fill="#FFA500" opacity="0.7"/>
+                    
+                    <!-- Center flame -->
+                    <path class="flame flame-2" d="M 100 180 Q 85 140 90 100 Q 80 140 100 150 Q 90 125 105 105 Q 100 140 120 150 Q 110 165 100 180 Z" fill="#FF4500"/>
+                    <path class="flame flame-2" d="M 100 180 Q 85 140 90 100 Q 80 140 100 150 Q 90 125 105 105 Q 100 140 120 150 Q 110 165 100 180 Z" fill="#FFD700" opacity="0.6"/>
+                    
+                    <!-- Right flame -->
+                    <path class="flame flame-1" d="M 160 180 Q 170 150 165 120 Q 175 140 160 160 Q 165 145 155 130 Q 160 150 145 155 Q 155 165 160 180 Z" fill="#FF6B35"/>
+                    <path class="flame flame-1" d="M 160 180 Q 170 150 165 120 Q 175 140 160 160 Q 165 145 155 130 Q 160 150 145 155 Q 155 165 160 180 Z" fill="#FFA500" opacity="0.7"/>
+                </g>
+                
+                <!-- Dumpster Body -->
+                <rect x="20" y="100" width="160" height="80" fill="#404040" stroke="#1a1a1a" stroke-width="2" rx="4"/>
+                
+                <!-- Dumpster Top Rim -->
+                <rect x="15" y="95" width="170" height="8" fill="#505050" stroke="#1a1a1a" stroke-width="1" rx="2"/>
+                
+                <!-- Dumpster Lid -->
+                <rect x="30" y="50" width="140" height="50" fill="#505050" stroke="#1a1a1a" stroke-width="2" rx="4" class="lid"/>
+                
+                <!-- Lid Handle -->
+                <circle cx="100" cy="60" r="6" fill="#404040" stroke="#1a1a1a" stroke-width="1"/>
+                
+                <!-- Dumpster Wheels -->
+                <circle cx="50" cy="190" r="12" fill="#1a1a1a" stroke="#505050" stroke-width="2"/>
+                <circle cx="150" cy="190" r="12" fill="#1a1a1a" stroke="#505050" stroke-width="2"/>
+                <circle cx="50" cy="190" r="6" fill="#333" />
+                <circle cx="150" cy="190" r="6" fill="#333" />
+            </svg>
+        </div>
+        
+        <button id="rollButton" class="roll-button">
+            🎲 Roll the Dice 🎲
+        </button>
+        
+        <div class="result-container">
+            <div class="dice-result" id="diceResult">
+                <span class="result-label">Last Roll:</span>
+                <span class="result-number" id="resultNumber">-</span>
+            </div>
+            
+            <div class="state-message" id="stateMessage">
+                Press the button to roll!
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
